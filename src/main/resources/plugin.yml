@@ -1,0 +1,24 @@
+name: StatsEditor
+description: This plugin allows you to edit the player stats which you can browse in the Statistics menu when you press Escape.
+author: Cocolennon
+main: me.cocolennon.statseditor.Main
+version: 1.0.0
+api-version: 1.19
+commands:
+  statseditor:
+    description: See the plugin's info
+  edit-stat:
+    description: Modify a player's stats
+  edit-item-stat:
+    description: Modify a player's item stats
+  edit-mob-stat:
+    description: Modify a player's mob stats
+permissions:
+  statseditor.info:
+    description: Allows the user to see the plugin's info
+  statseditor.edit-stat:
+    description: Allows the user to modify a player's stats
+  statseditor.edit-item-stat:
+    description: Allows the user to modify a player's item stats
+  statseditor.edit-mob-stat:
+    description: Allows the user to modify a player's mob stats
