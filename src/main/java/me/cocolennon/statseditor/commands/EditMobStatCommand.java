@@ -30,6 +30,8 @@ public class EditMobStatCommand implements TabExecutor {
             Statistic.ENTITY_KILLED_BY
     );
 
+    List<String> math = Arrays.asList("add", "subtract", "multiply", "divide");
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(args.length == 0) {
@@ -72,14 +74,29 @@ public class EditMobStatCommand implements TabExecutor {
             return false;
         }
 
+        int newValue = Integer.parseInt(args[2]);
+        int oldValue = player.getStatistic(statistic);
+        if(args.length == 4) {
+            switch(args[3]) {
+                case "add" -> newValue += oldValue;
+                case "subtract" -> newValue = oldValue - newValue;
+                case "multiply" -> newValue *= oldValue;
+                case "divide" -> newValue = oldValue / newValue;
+                default -> {
+                    player.sendMessage("§3[§dStatsEditor§3] §c" + args[3] + " isn't an operation!");
+                    return false;
+                }
+            }
+        }
+
         try {
-            player.setStatistic(statistic, mob, Integer.parseInt(args[3]));
+            player.setStatistic(statistic, mob, newValue);
         }catch(IllegalArgumentException error){
             player.sendMessage("§3[§dStatsEditor§3] §cEither statistic or the item you put in does not exist.");
             return false;
         }
 
-        sender.sendMessage("§3[§dStatsEditor§3] §aStatistic has successfully been edited.");
+        sender.sendMessage("§3[§dStatsEditor§3] §aStatistic §d" + statistic.name().replaceAll("_", " ") + " §a for §d" + mob.name().replaceAll("_", " ").toLowerCase() + " §ahas successfully been edited from §d" + oldValue + " §ato §d" + newValue);
         Logger.log("§a"+sender.getName()+" has set "+player.getName()+"'s "+statisticName+" stat for "+mobName+" to "+args[3]);
         return true;
     }
@@ -106,6 +123,10 @@ public class EditMobStatCommand implements TabExecutor {
                 }
             }
             StringUtil.copyPartialMatches(args[2], mobs, completions);
+            return completions;
+        }else if(args.length == 4) {
+            List<String> completions = new ArrayList<>();
+            StringUtil.copyPartialMatches(args[3], math, completions);
             return completions;
         }
         return null;
