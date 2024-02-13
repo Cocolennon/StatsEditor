@@ -13,6 +13,8 @@ commands:
     description: Modify a player's item stats
   edit-mob-stat:
     description: Modify a player's mob stats
+  view-stat:
+    description: View a player's stats
 permissions:
   statseditor.info:
     description: Allows the user to see the plugin's info
@@ -22,3 +24,5 @@ permissions:
     description: Allows the user to modify a player's item stats
   statseditor.edit-mob-stat:
     description: Allows the user to modify a player's mob stats
+  statseditor.view-stat:
+    description: Allows the user to view a player's stat
