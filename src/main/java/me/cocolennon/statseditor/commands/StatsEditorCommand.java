@@ -27,7 +27,7 @@ public class StatsEditorCommand implements CommandExecutor {
         List<String> info = new LinkedList<>();
         info.add("§3§l=========================");
         info.add("§d§lStats Editor " + getPlugin(Main.class).getDescription().getVersion());
-        if(Main.getUsingOldVersion()){
+        if(Main.getInstance().getUsingOldVersion()){
             info.add("§dAn update is available!");
         }else{
             info.add("§dYou're using the latest version");
