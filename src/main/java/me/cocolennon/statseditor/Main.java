@@ -7,7 +7,6 @@ import me.cocolennon.statseditor.commands.StatsEditorCommand;
 import me.cocolennon.statseditor.listeners.JoinListener;
 import me.cocolennon.statseditor.utils.Logger;
 import me.cocolennon.statseditor.utils.UpdateChecker;
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
