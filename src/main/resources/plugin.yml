@@ -2,7 +2,7 @@ name: StatsEditor
 description: This plugin allows you to edit the player stats which you can browse in the Statistics menu when you press Escape.
 author: Cocolennon
 main: me.cocolennon.statseditor.Main
-version: 1.0.0
+version: 1.0.1
 api-version: 1.19
 commands:
   statseditor:
