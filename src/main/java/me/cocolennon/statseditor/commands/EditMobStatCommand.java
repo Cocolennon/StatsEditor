@@ -96,7 +96,7 @@ public class EditMobStatCommand implements TabExecutor {
             return false;
         }
 
-        sender.sendMessage("§3[§dStatsEditor§3] §aStatistic §d" + statistic.name().replaceAll("_", " ") + " §a for §d" + mob.name().replaceAll("_", " ").toLowerCase() + " §ahas successfully been edited from §d" + oldValue + " §ato §d" + newValue);
+        sender.sendMessage("§3[§dStatsEditor§3] §aStatistic §d" + statistic.name().replaceAll("_", " ").toLowerCase() + "§a for §d" + mob.name().replaceAll("_", " ").toLowerCase() + " §ahas successfully been edited from §d" + oldValue + " §ato §d" + newValue);
         Logger.log("§a"+sender.getName()+" has set "+player.getName()+"'s "+statisticName+" stat for "+mobName+" to "+args[3]);
         return true;
     }

@@ -96,7 +96,7 @@ public class EditItemStatCommand implements TabExecutor {
             return false;
         }
 
-        sender.sendMessage("§3[§dStatsEditor§3] §aStatistic §d" + statistic.name().replaceAll("_", " ") + " §a for §d" + material.name().replaceAll("_", " ").toLowerCase() + " §ahas successfully been edited from §d" + oldValue + " §ato §d" + newValue);
+        sender.sendMessage("§3[§dStatsEditor§3] §aStatistic §d" + statistic.name().replaceAll("_", " ").toLowerCase() + "§a for §d" + material.name().replaceAll("_", " ").toLowerCase() + " §ahas successfully been edited from §d" + oldValue + " §ato §d" + newValue);
         Logger.log("§a"+sender.getName()+" has set "+player.getName()+"'s "+statisticName+" stat for "+materialName+" to "+args[3]);
         return true;
     }
