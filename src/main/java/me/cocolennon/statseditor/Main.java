@@ -19,8 +19,9 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        //checkVersion();
+        checkVersion();
         registerCommands();
+        registerListeners();
         Logger.log("&aPlugin enabled!");
     }
 
@@ -28,7 +29,7 @@ public class Main extends JavaPlugin {
         Logger.log("&cPlugin disabled!");
     }
 
-    /*public void checkVersion() {
+    public void checkVersion() {
         new UpdateChecker(this, this, 111167).getVersion(cVersion -> {
             version = this.getDescription().getVersion();
             latestVersion = cVersion;
@@ -37,7 +38,7 @@ public class Main extends JavaPlugin {
                 usingOldVersion = true;
             }
         });
-    }*/
+    }
 
     private void registerCommands() {
         getCommand("statseditor").setExecutor(new StatsEditorCommand());
