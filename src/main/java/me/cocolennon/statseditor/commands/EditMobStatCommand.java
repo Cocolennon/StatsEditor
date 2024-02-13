@@ -74,16 +74,16 @@ public class EditMobStatCommand implements TabExecutor {
             return false;
         }
 
-        int newValue = Integer.parseInt(args[2]);
-        int oldValue = player.getStatistic(statistic);
-        if(args.length == 4) {
-            switch(args[3]) {
+        int newValue = Integer.parseInt(args[3]);
+        int oldValue = player.getStatistic(statistic, mob);
+        if(args.length == 5) {
+            switch(args[4]) {
                 case "add" -> newValue += oldValue;
                 case "subtract" -> newValue = oldValue - newValue;
                 case "multiply" -> newValue *= oldValue;
                 case "divide" -> newValue = oldValue / newValue;
                 default -> {
-                    player.sendMessage("§3[§dStatsEditor§3] §c" + args[3] + " isn't an operation!");
+                    player.sendMessage("§3[§dStatsEditor§3] §c" + args[4] + " isn't an operation!");
                     return false;
                 }
             }
