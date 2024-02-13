@@ -55,19 +55,19 @@ public class EditStatCommand implements TabExecutor {
         String statisticName = args[1].substring(10).toUpperCase();
         Statistic statistic = Statistic.valueOf(statisticName);
         if(itemStatistics.contains(statistic)) {
-            player.sendMessage("§3[§dStatsEditor§3] §cThe statistic you inputted need to be used with /edit-item-stat.");
+            player.sendMessage("§3[§dStatsEditor§3] §cThe statistic you put in needs to be used with /edit-item-stat.");
             return false;
         }
 
         if(mobStatistics.contains(statistic)) {
-            player.sendMessage("§3[§dStatsEditor§3] §cThe statistic you inputted need to be used with /edit-mob-stat.");
+            player.sendMessage("§3[§dStatsEditor§3] §cThe statistic you put in needs to be used with /edit-mob-stat.");
             return false;
         }
 
         try {
             player.setStatistic(statistic, Integer.parseInt(args[2]));
         }catch(IllegalArgumentException error){
-            player.sendMessage("§3[§dStatsEditor§3] §cThe statistic you inputted does not exist.");
+            player.sendMessage("§3[§dStatsEditor§3] §cThe statistic you put in does not exist.");
             return false;
         }
 
