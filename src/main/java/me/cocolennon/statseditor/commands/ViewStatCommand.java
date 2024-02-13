@@ -45,7 +45,7 @@ public class ViewStatCommand implements TabExecutor {
         }
         Statistic stat;
         try {
-            stat = Statistic.valueOf(args[1]);
+            stat = Statistic.valueOf(args[1].substring(10).toUpperCase());
         }catch(IllegalArgumentException exception) {
             sender.sendMessage("§3[§dStatsEditor§3] §cPlease provide a valid statistic!");
             return false;
@@ -63,7 +63,7 @@ public class ViewStatCommand implements TabExecutor {
             }
             Material item = Material.valueOf(args[2].substring(10).toUpperCase());
             statValue = target.getStatistic(stat, item);
-            player.sendMessage("§3[§dStatsEditor§3] §aStatistic §d" + stat.name().replaceAll("_", " ").toLowerCase() + " §afor §d" + item.name().replaceAll("_", " ").toLowerCase() + " of §d" + target.getName() + " §ais at §d" + statValue);
+            player.sendMessage("§3[§dStatsEditor§3] §aStatistic §d" + stat.name().replaceAll("_", " ").toLowerCase() + " §afor §d" + item.name().replaceAll("_", " ").toLowerCase() + " §aof §d" + target.getName() + " §ais at §d" + statValue);
             return true;
         }else if(mobStatistics.contains(stat)) {
             if(args.length == 2) {
@@ -72,7 +72,7 @@ public class ViewStatCommand implements TabExecutor {
             }
             EntityType mob = EntityType.valueOf(args[2].substring(10).toUpperCase());
             statValue = target.getStatistic(stat, mob);
-            player.sendMessage("§3[§dStatsEditor§3] §aStatistic §d" + stat.name().replaceAll("_", " ").toLowerCase() + " §afor §d" + mob.name().replaceAll("_", " ").toLowerCase() + " of §d" + target.getName() + " §ais at §d" + statValue);
+            player.sendMessage("§3[§dStatsEditor§3] §aStatistic §d" + stat.name().replaceAll("_", " ").toLowerCase() + " §afor §d" + mob.name().replaceAll("_", " ").toLowerCase() + " §aof §d" + target.getName() + " §ais at §d" + statValue);
             return true;
         }else statValue = target.getStatistic(stat);
 
@@ -85,7 +85,7 @@ public class ViewStatCommand implements TabExecutor {
         if(!(sender instanceof Player)) return null;
         if(args.length == 2) {
             List<String> statistics = new ArrayList<>();
-            for(Statistic statistic : Statistic.values()) statistics.add(statistic.name());
+            for(Statistic statistic : Statistic.values()) statistics.add("minecraft:" + statistic.name().toLowerCase());
             List<String> completions = new ArrayList<>();
             StringUtil.copyPartialMatches(args[1], statistics, completions);
             return completions;
