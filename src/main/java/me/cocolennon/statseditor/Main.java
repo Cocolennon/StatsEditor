@@ -1,9 +1,6 @@
 package me.cocolennon.statseditor;
 
-import me.cocolennon.statseditor.commands.EditMobStatCommand;
-import me.cocolennon.statseditor.commands.EditItemStatCommand;
-import me.cocolennon.statseditor.commands.EditStatCommand;
-import me.cocolennon.statseditor.commands.StatsEditorCommand;
+import me.cocolennon.statseditor.commands.*;
 import me.cocolennon.statseditor.listeners.JoinListener;
 import me.cocolennon.statseditor.utils.Logger;
 import me.cocolennon.statseditor.utils.UpdateChecker;
@@ -44,6 +41,7 @@ public class Main extends JavaPlugin {
         getCommand("edit-stat").setExecutor(new EditStatCommand());
         getCommand("edit-item-stat").setExecutor(new EditItemStatCommand());
         getCommand("edit-mob-stat").setExecutor(new EditMobStatCommand());
+        getCommand("view-stat").setExecutor(new ViewStatCommand());
     }
 
     private void registerListeners() {
