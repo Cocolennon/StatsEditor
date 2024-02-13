@@ -122,9 +122,9 @@ public class EditItemStatCommand implements TabExecutor {
             }
             StringUtil.copyPartialMatches(args[2], materials, completions);
             return completions;
-        }else if(args.length == 4) {
+        }else if(args.length == 5) {
             List<String> completions = new ArrayList<>();
-            StringUtil.copyPartialMatches(args[3], math, completions);
+            StringUtil.copyPartialMatches(args[4], math, completions);
             return completions;
         }
         return null;
