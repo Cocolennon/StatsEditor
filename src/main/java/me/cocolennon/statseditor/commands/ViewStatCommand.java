@@ -96,13 +96,13 @@ public class ViewStatCommand implements TabExecutor {
             }catch(IllegalArgumentException ignored) { return null; }
             if(itemStatistics.contains(stat)) {
                 List<String> items = new ArrayList<>();
-                for(Material material : Material.values()) items.add(material.name());
+                for(Material material : Material.values()) items.add("minecraft:" + material.name().toLowerCase());
                 List<String> completions = new ArrayList<>();
                 StringUtil.copyPartialMatches(args[2], items, completions);
                 return completions;
             }else if(mobStatistics.contains(stat)){
                 List<String> mobs = new ArrayList<>();
-                for(EntityType material : EntityType.values()) mobs.add(material.name());
+                for(EntityType mob : EntityType.values()) mobs.add("minecraft:" + mob.name().toLowerCase());
                 List<String> completions = new ArrayList<>();
                 StringUtil.copyPartialMatches(args[2], mobs, completions);
                 return completions;
