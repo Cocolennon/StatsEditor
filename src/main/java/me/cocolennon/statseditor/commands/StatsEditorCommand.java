@@ -16,10 +16,9 @@ public class StatsEditorCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(!(sender instanceof Player)) return false;
         if (!sender.hasPermission("statseditor.info")) {
-            sender.sendMessage("§3[§dStatsEditor§3]§f: §cYou can't do that!");
+            sender.sendMessage("§3[§dStatsEditor§3] §cYou can't do that!");
             return false;
         }
-
         sendInfo(sender);
         return true;
     }
